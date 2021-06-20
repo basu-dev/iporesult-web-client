@@ -1,1 +1,9 @@
 <router-outlet></router-outlet>
+
+<div (click)="openModal('payment-modal')" class="floating-button">
+  +
+</div>
+
+<jw-modal id="payment-modal">
+  <app-user-form></app-user-form>
+</jw-modal>

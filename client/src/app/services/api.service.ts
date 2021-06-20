@@ -8,8 +8,8 @@ import {map} from "rxjs/operators"
 export class ApiService {
 
   constructor(private http: HttpClient) {}
-  url = "http://localhost:5000/result"
-
+  url = "http://localhost:5000"
+  resultUrl = `${this.url}/result`
   iposUrl = "https://iporesult.cdsc.com.np/result/companyShares/fileUploaded"
   getIpos(): Observable<Ipo> {
     return this.http.get<Ipo>(this.iposUrl).pipe(map(
@@ -17,24 +17,26 @@ export class ApiService {
     ))
   }
 
-  users = [
-    {
-      name: "Krishna",
-      boid: 1301370002832644
-    }
-  ]
+  users: User[] = [];
 
-  getResult(companyShareId: number): Observable<any> {
-    return this.http.post(this.url, {
+  ping() {
+    this.http.get(this.url).subscribe(
+      _ => console.log("Server Ready"),
+      (err) => console.error(err)
+    )
+  }
+  getResult(companyShareId: number): Observable<IpoResult[]> {
+    console.log(this.users)
+    return this.http.post<IpoResult[]>(this.resultUrl, {
       companyShareId,
       users: this.users
     })
   }
   saveUser(user: any) {
     this.users.push(user);
-    localStorage.setItem('users', JSON.stringify(this.users))
+    localStorage.setItem('ipoUsers', JSON.stringify(this.users))
   }
-  retrieveUsers() {this.users = JSON.parse(localStorage.getItem('users') as string)};
+  retrieveUsers() {this.users = JSON.parse(localStorage.getItem('ipoUsers') as string) ?? this.users};
 
 
 
@@ -46,4 +48,16 @@ export interface Ipo {
   id: number,
   name: string,
   scrip: string,
+}
+export interface IpoResult {
+  user: User,
+  result: Result
+}
+export interface User {
+  name: string,
+  boid: number
+}
+export interface Result {
+  success: boolean,
+  message: string
 }

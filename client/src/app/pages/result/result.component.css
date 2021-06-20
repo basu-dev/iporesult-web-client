@@ -1,7 +1,39 @@
-td{
-    margin-left:10px;
-    display:table-cell;
+th,td{
+    margin:1rem;
+    padding:1rem;
+    text-align:left;
 }
 th{
-    margin:10px
+    background:#00ffff22;
+}
+tr:nth-child(even){
+    background:#eeeeee;
+}
+tr{
+    padding:.5rem;
+}
+.title{
+    display:block;
+    font-size:22px;
+    font-weight:600;
+    text-align:center;
+    letter-spacing:1px;
+}
+.custom-status{
+    display:inline-block;
+    text-align:center;
+    min-width:150px;
+    font-weight:600;
+    text-transform:uppercase;
+    padding:.3rem 1rem;
+
+}
+.custom-status.true{
+    background:#00fff0;
+    color:#044754;
+    
+} 
+.custom-status.false{
+    background:#e94646;
+    color:#690916;
 }

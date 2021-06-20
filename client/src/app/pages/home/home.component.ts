@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService, Ipo} from 'src/app/services/api.service';
+import {ModalService} from 'src/app/services/modal.service';
 
 @Component({
     selector: 'app-home',
@@ -8,7 +9,9 @@ import {ApiService, Ipo} from 'src/app/services/api.service';
 })
 export class HomeComponent implements OnInit {
 
-    constructor(private apiService: ApiService) {}
+    constructor(private apiService: ApiService,
+        private modalService: ModalService
+    ) {}
     ipos!: Ipo[];
     colors = ['blue', 'green', 'red', 'orangered', '#ff00ff']
     random: number[] = []
@@ -24,5 +27,9 @@ export class HomeComponent implements OnInit {
             (err: any) => console.log(err)
         )
 
+    }
+
+    openModal(id: string): void {
+        this.modalService.open(id);
     }
 }

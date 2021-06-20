@@ -1,1 +1,19 @@
-<button (click)="loadResult()">Load Data</button>
+<div class='card'>
+  <div class='title'>Results</div>
+  <table *ngIf="ipoResults">
+    <tr>
+      <th>Name</th>
+      <th>Result</th>
+      <th>Description</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let result of ipoResults">
+        <td>{{result.user.name}}</td>
+        <td><span [class]="'custom-status '+result.result.success.toString().toLowerCase()">
+            {{result.result.success?'Alloted':'Not Alloted'}}
+          </span></td>
+        <td>{{result.result.message}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
