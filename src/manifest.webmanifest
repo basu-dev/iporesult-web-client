@@ -1,8 +1,8 @@
 {
   "name": "iporesult",
   "short_name": "iporesult",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#911e91",
+  "background_color": "#911e91",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
