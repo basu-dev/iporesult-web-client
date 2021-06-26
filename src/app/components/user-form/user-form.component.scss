@@ -1,0 +1,60 @@
+@import "../../themes/variables.scss";
+.card-dark{
+    background:$backgroundColor1;
+}
+form{
+
+
+}
+.form-group{
+    margin-bottom:1rem;
+}
+input{
+    display:block;
+    width:calc(400px - 2rem);
+    padding:.7rem 1rem;
+    border:1px solid #cccccc;
+    border-raidus:7px;
+     
+}
+.button-group{
+    margin-top:1rem;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap:1rem;
+    
+}
+.three-items{
+    grid-template-columns:1fr 1fr 1fr;
+}
+
+.button-group button{
+    border:none;
+    padding:.7rem 1rem;
+    cursor:pointer;
+    
+}
+button.submit{
+    background:$primaryColor;
+
+    color:$primaryColorText;
+}
+button.cancel{
+    border:2px solid $primaryColor;
+    color:$primaryColor;
+}
+button.delete{
+    color:$primaryColorText;
+    background:#da1a1a !important;
+}
+@media only screen and (max-width:768px){
+    .button-group{
+        margin-top:2rem;
+        grid-template-columns:1fr !important;
+        grid-gap:0 !important;
+    }
+    button{
+        width:100%;
+        margin-bottom:1rem;
+    }
+}

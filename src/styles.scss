@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./app/themes/variables.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+    font-family:"Poppins";
+    background-image:   linear-gradient(to bottom right, $backgroundColor1, $backgroundColor2) !important;
+    backdrop-filter:blur(20px);
+    // overflow-y: scroll;
+    height:100vh;
+    // position:fixed;
+    color:$color; 
+}
+.card{
+  padding:1rem 1.5rem;
+  background:$cardBackground;
+  box-shadow:1px 1px 5px $cardBackground;
+  border-radius:7px;
+}
+.title{
+  font-size:18px;
+  font-weight:600;
+  text-align:center;
+  margin-bottom:1rem;
+}
+table{
+    width:100%;
+}
+th,td{
+
+
+
+    padding:.5rem;
+    text-align:left;
+}
+th{
+    background:#00ffff22;
+}
+tr{
+    width:100%;
+    justify-content:space-between;
+}
+tr:nth-child(even){
+    background:#00000033;
+}
+
+.title{
+    display:block;
+    font-size:22px;
+    font-weight:600;
+    text-align:center;
+    letter-spacing:1px;
+}
+.custom-status{
+    display:inline-block;
+    text-align:center;
+    min-width:150px;
+    font-weight:600;
+    text-transform:uppercase;
+    padding:.3rem 1rem;
+
+}
+.custom-status.true{
+    background:#00fff0;
+    color:#044754;
+} 
+.custom-status.false{
+    background:#ed606099;
+    color:#690916;
+}
+
+@media only screen and (max-width: 600px) {
+td:nth-child(3),th:nth-child(3){
+    display:none;
+}
+}
+.no-content{
+  height:50vh;
+  display:grid;
+  place-items:center;
+  font-size:1.3rem;
+}

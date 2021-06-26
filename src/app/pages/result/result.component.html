@@ -1,0 +1,20 @@
+<div *ngIf="ipoResults && ipoResults.length > 0">
+  <div class='title'>Results</div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Result</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let result of ipoResults">
+        <td>{{result.user.name}}</td>
+        <td><span [class]="'custom-status '+result.result.success.toString().toLowerCase()">
+            {{result.result.success?'Alloted':'Not Alloted'}}
+          </span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="no-content" *ngIf="ipoResults && ipoResults.length==0">
+  No Results To Show.
+</div>

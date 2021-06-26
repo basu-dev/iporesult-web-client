@@ -1,0 +1,13 @@
+$backgroundColor1:#2260a3;
+
+$backgroundColor2:#731266;
+$cardBackground:#00000033;
+$color:#ffffff;
+$primaryColor:#911e91;
+$primaryColorText:#fff;
+
+$secondaryColor:#35b2f0;
+$navbarBackground:$primaryColor;
+
+$navHeight:50px;
+

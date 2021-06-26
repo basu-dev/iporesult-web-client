@@ -1,0 +1,40 @@
+@import "../../themes/variables.scss";
+:host{
+  display:contents;
+}
+nav{
+  display:grid;
+  grid-template-columns:1fr 2fr 1fr;
+  position:fixed;
+  width:100vw;
+  top:0;
+  left:0;
+  font-size:1.1rem;
+  text-transform:uppercase;
+ z-index:10; 
+  box-shadow:1px 1px 5px #00000033;
+  background-color:$navbarBackground;
+}
+nav ul{
+  padding:0 2rem;
+  height:$navHeight;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.company-name{
+  font-size: 1.1rem;
+}
+li{
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  user-select: none;
+  
+}
+@media only screen and(max-width:600px){
+  nav{
+    display:block;
+  }
+}

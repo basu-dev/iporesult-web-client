@@ -1,0 +1,26 @@
+<div *ngIf="users && users.length > 0;else elseBloc">
+  <div class='title'>All Users</div>
+  <table *ngIf="users">
+    <tr>
+      <th>Name</th>
+      <th>Boid Number</th>
+      <th></th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td (click)="editUser(user.id)" class="highlight">{{user.name}}</td>
+        <td><span>
+            {{user.boid}}
+          </span></td>
+        <td (click)="editUser(user.id)">Edit</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<ng-template #elseBloc>
+  <div class="no-content">
+    No Users Set.
+  </div>
+</ng-template>
