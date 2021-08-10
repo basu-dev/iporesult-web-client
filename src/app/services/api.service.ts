@@ -1,22 +1,28 @@
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {map} from "rxjs/operators"
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { map } from "rxjs/operators"
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) { }
   url = "https://ipo-result.herokuapp.com"
   resultUrl = `${this.url}/result`
   iposUrl = "https://iporesult.cdsc.com.np/result/companyShares/fileUploaded"
+
   getIpos(): Observable<Ipo> {
     return this.http.get<Ipo>(this.iposUrl).pipe(map(
       (data: any) => data.body
     ))
   }
+
   public loadingSub = new BehaviorSubject<boolean>(false);
   public loading$ = this.loadingSub.asObservable();
+
   loading(load: boolean) {
     this.loadingSub.next(load);
   }
@@ -35,9 +41,11 @@ export class ApiService {
       users: this.users
     })
   }
+
   getUserById(id: string): User {
     return this.users.filter(u => u.id == id)[0];
   }
+
   saveUser(user: any) {
     user.id = Date.now().toString();
     this.users.push(user);
@@ -50,24 +58,23 @@ export class ApiService {
     if (index != -1) {
       this.users[index].name = user.name;
       this.users[index].boid = user.boid;
-
       this.saveToLocalStorage();
     }
 
   }
-  deleteUser(id: string) {
 
+  deleteUser(id: string) {
     let index = this.users.findIndex(user => user.id == id);
     if (index != -1) {
       this.users.splice(index, 1);
       this.saveToLocalStorage();
     }
   }
+
   saveToLocalStorage() {
-
-
     localStorage.setItem('ipoUsers', JSON.stringify(this.users))
   }
+
   retrieveUsers() {
     this.users = JSON.parse(localStorage.getItem('ipoUsers') as string) ?? this.users
     return this.users;
@@ -81,15 +88,18 @@ export interface Ipo {
   name: string,
   scrip: string,
 }
+
 export interface IpoResult {
   user: User,
   result: Result
 }
+
 export interface User {
   id: string,
   name: string,
   boid: number
 }
+
 export interface Result {
   success: boolean,
   message: string

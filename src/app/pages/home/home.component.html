@@ -1,13 +1,18 @@
 <div *ngIf="ipos && ipos.length > 0">
-    <div *ngFor="let ipo of ipos;let i=index" [routerLink]="'/result/'+ipo.id" class="tile card">
-        <div class="leading">
-            {{ipo.scrip}}
-        </div>
-        <div class="middle">
-            <div class="name">{{ipo.name}}</div>
-        </div>
+  <div
+    *ngFor="let ipo of ipos; let i = index"
+    [routerLink]="'/result/' + ipo.id"
+    class="tile card"
+  >
+    <div class="leading">
+      {{ ipo.scrip }}
     </div>
+    <div class="middle">
+      <div class="name">{{ ipo.name }}</div>
+    </div>
+  </div>
 </div>
-<div class="no-content" *ngIf="ipos && ipos.length==0">
-    No Ipos Found.
+<div *ngIf="error" class="no-content">
+  Some errors retrieving Ipo List from the server.
 </div>
+<div class="no-content" *ngIf="ipos && ipos.length == 0">No Ipos Found.</div>

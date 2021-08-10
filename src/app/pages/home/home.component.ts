@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService, Ipo} from 'src/app/services/api.service';
-import {ModalService} from 'src/app/services/modal.service';
+import { Component, OnInit } from '@angular/core';
+import { ApiService, Ipo } from 'src/app/services/api.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
     selector: 'app-home',
@@ -11,13 +11,16 @@ export class HomeComponent implements OnInit {
 
     constructor(private apiService: ApiService,
         private modalService: ModalService
-    ) {}
+    ) { }
     ipos!: Ipo[];
     colors = ['blue', 'green', 'red', 'orangered', '#ff00ff']
     random: number[] = []
+    error = false;
+
     ngOnInit(): void {
         this.apiService.getIpos().subscribe(
             (data: any) => {
+                this.error = false;
                 this.ipos = data
                 console.log(data)
                 for (let i = 0; i < this.ipos.length; i++) {
@@ -25,6 +28,7 @@ export class HomeComponent implements OnInit {
                 }
             },
             (err: any) => {
+                this.error = true;
                 console.log(err);
             }
 
