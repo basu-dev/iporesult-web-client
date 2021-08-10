@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 @import "./app/themes/variables.scss";
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
@@ -45,6 +44,17 @@ td {
 th {
   background: #00ffff22;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.header div {
+  padding: 0.5rem;
+  background: #00ffff22;
+}
 tr {
   width: 100%;
   justify-content: space-between;
@@ -61,12 +71,19 @@ tr:nth-child(even) {
   letter-spacing: 1px;
 }
 .custom-status {
-  display: inline-block;
+  display: inline-flex;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   min-width: 150px;
   font-weight: 600;
   text-transform: uppercase;
+  width: 100%;
   padding: 0.3rem 1rem;
+}
+.custom-status.glass {
+  backdrop-filter: blur(20px);
+  background-color: #00000033;
 }
 .custom-status.true {
   background: #00fff0;
@@ -80,10 +97,24 @@ tr:nth-child(even) {
 .no-content {
   height: 50vh;
   display: grid;
-  place-items: center;
+  align-items: center;
+  place-content: center;
   font-size: 1.3rem;
 }
 
 .text-center {
   text-align: center;
+}
+.c-pointer {
+  cursor: pointer;
+}
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.pl-1 {
+  padding-left: 0.3rem;
+}
+button {
+  font-weight: 600;
 }

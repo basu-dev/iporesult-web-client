@@ -1,5 +1,5 @@
-<div *ngIf="ipoResults && ipoResults.length > 0">
-  <div class='title'>Results</div>
+<!-- <div *ngIf="ipoResults && ipoResults.length > 0">
+  <div class="title">Results</div>
   <table>
     <tr>
       <th>Name</th>
@@ -7,14 +7,45 @@
     </tr>
     <tbody>
       <tr *ngFor="let result of ipoResults">
-        <td>{{result.user.name}}</td>
-        <td><span [class]="'custom-status '+result.result.success.toString().toLowerCase()">
-            {{result.result.success?'Alloted':'Not Alloted'}}
-          </span></td>
+        <td>{{ result.user.name }}</td>
+        <td>
+          <span
+            [class]="
+              'custom-status ' + result.result.success.toString().toLowerCase()
+            "
+          >
+            {{ result.result.success ? "Alloted" : "Not Alloted" }}
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>
-</div>
-<div class="no-content" *ngIf="ipoResults && ipoResults.length==0">
-  No Results To Show.
+</div> -->
+<div *ngIf="ipoResults && ipoResults.length > 0">
+  <div class="title">{{ ipoName }}</div>
+  <div class="grid header">
+    <div class="text-center">Name</div>
+    <div class="text-center">Result</div>
+  </div>
+  <div class="grid" *ngFor="let result of ipoResults">
+    <div class="pl-1 custom-status glass">{{ result.user.name }}</div>
+    <span
+      [class]="
+        ' custom-status ' + result.result.success.toString().toLowerCase()
+      "
+    >
+      {{ result.result.success ? "Alloted" : "Not Alloted" }}
+    </span>
+  </div>
+  <div>
+    <div class="no-content" *ngIf="ipoResults && ipoResults.length == 0">
+      No Results To Show.
+    </div>
+    <div class="no-content text-center" *ngIf="error">
+      <p>Check all the BOIDs you have added.</p>
+      <p>
+        If any one of the BOIDs is wrong, you will not get result for any BOID.
+      </p>
+    </div>
+  </div>
 </div>

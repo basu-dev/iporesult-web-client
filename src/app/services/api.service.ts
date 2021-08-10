@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { map } from "rxjs/operators"
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { map, tap } from "rxjs/operators"
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,16 @@ export class ApiService {
   resultUrl = `${this.url}/result`
   iposUrl = "https://iporesult.cdsc.com.np/result/companyShares/fileUploaded"
 
-  getIpos(): Observable<Ipo> {
-    return this.http.get<Ipo>(this.iposUrl).pipe(map(
-      (data: any) => data.body
-    ))
+  private ipos: Ipo[] = [];
+
+  getIpos(): Observable<Ipo[]> {
+    if (this.ipos.length != 0) return of(this.ipos);
+
+    return this.http.get<Ipo>(this.iposUrl).pipe(
+      tap((data: any) => this.ipos = data.body),
+      map(
+        (data: any) => data.body
+      ))
   }
 
   public loadingSub = new BehaviorSubject<boolean>(false);
@@ -25,6 +31,10 @@ export class ApiService {
 
   loading(load: boolean) {
     this.loadingSub.next(load);
+  }
+
+  getIpoById(id: number): Ipo {
+    return this.ipos.find(ipo => ipo.id == id) as Ipo;
   }
   users: User[] = [];
 
@@ -34,6 +44,7 @@ export class ApiService {
       (err) => console.error(err)
     )
   }
+
   getResult(companyShareId: number): Observable<IpoResult[]> {
     console.log(this.users)
     return this.http.post<IpoResult[]>(this.resultUrl, {

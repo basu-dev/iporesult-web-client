@@ -12,9 +12,8 @@ export class HomeComponent implements OnInit {
     constructor(private apiService: ApiService,
         private modalService: ModalService
     ) { }
+
     ipos!: Ipo[];
-    colors = ['blue', 'green', 'red', 'orangered', '#ff00ff']
-    random: number[] = []
     error = false;
 
     ngOnInit(): void {
@@ -22,20 +21,15 @@ export class HomeComponent implements OnInit {
             (data: any) => {
                 this.error = false;
                 this.ipos = data
-                console.log(data)
-                for (let i = 0; i < this.ipos.length; i++) {
-                    this.random.push(Math.random() * this.ipos.length)
-                }
             },
             (err: any) => {
                 this.error = true;
-                console.log(err);
             }
-
         )
+    }
+    clicked(id: number) {
 
     }
-
     openModal(id: string): void {
         this.modalService.open(id);
     }
