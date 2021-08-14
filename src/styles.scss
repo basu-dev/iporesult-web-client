@@ -9,23 +9,34 @@
 }
 body {
   font-family: "Poppins";
-  background-image: linear-gradient(
-    to bottom right,
-    $backgroundColor1,
-    $backgroundColor2
-  ) !important;
-  backdrop-filter: blur(20px);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='500' height='1000' preserveAspectRatio='none' viewBox='0 0 500 1000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1280%26quot%3b)' fill='none'%3e%3cpath d='M 0%2c392 C 50%2c357.6 150%2c233.2 250%2c220 C 350%2c206.8 450%2c304.8 500%2c326L500 1000L0 1000z' fill='rgba(0%2c 0%2c 0%2c 0.07)'%3e%3c/path%3e%3cpath d='M 0%2c979 C 33.4%2c906 100.2%2c624.8 167%2c614 C 233.8%2c603.2 267.4%2c942.8 334%2c925 C 400.6%2c907.2 466.8%2c605 500%2c525L500 1000L0 1000z' fill='rgba(18%2c 17%2c 17%2c 0.05)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1280'%3e%3crect width='500' height='1000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e"),
+    linear-gradient(to bottom right, $backgroundColor1, $backgroundColor2) !important;
+
+  // backdrop-filter: blur(20px);
+  background-size: cover;
   // overflow-y: scroll;
   height: 100vh;
   // position:fixed;
   color: $color;
 }
 
+@media screen and (min-width: 560px) {
+  body {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1300' height='768' preserveAspectRatio='none' viewBox='0 0 1300 768'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1309%26quot%3b)' fill='none'%3e%3cpath d='M 0%2c181 C 65%2c209.8 195%2c335 325%2c325 C 455%2c315 520%2c155.2 650%2c131 C 780%2c106.8 845%2c197.8 975%2c204 C 1105%2c210.2 1235%2c170.4 1300%2c162L1300 768L0 768z' fill='rgba(0%2c 0%2c 0%2c 0.07)'%3e%3c/path%3e%3cpath d='M 0%2c399 C 86.8%2c439.2 260.4%2c588.2 434%2c600 C 607.6%2c611.8 694.8%2c442.4 868%2c458 C 1041.2%2c473.6 1213.6%2c634 1300%2c678L1300 768L0 768z' fill='rgba(18%2c 17%2c 17%2c 0.05)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1309'%3e%3crect width='1300' height='768' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e"),
+      linear-gradient(to bottom right, $backgroundColor1, $backgroundColor2) !important;
+  }
+}
+.text-primary {
+  color: $primaryColor;
+}
+.text-danger {
+  color: #c40d26;
+}
 .card {
   padding: 1rem 1.5rem;
   background: $cardBackground;
   box-shadow: 1px 1px 5px $cardBackground;
-  border-radius: 7px;
+  border-radius: 5px;
 }
 .title {
   font-size: 18px;

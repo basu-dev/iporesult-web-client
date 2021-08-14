@@ -1,5 +1,5 @@
-import {Component, ViewEncapsulation, ElementRef, Input, OnInit, OnDestroy} from '@angular/core';
-import {ModalService} from 'src/app/services/modal.service';
+import { Component, ViewEncapsulation, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
 
 
 @Component({
@@ -29,11 +29,11 @@ export class ModalComponent implements OnInit, OnDestroy {
         document.body.appendChild(this.element);
 
         // close modal on background click
-        this.element.addEventListener('click', (el: any) => {
-            if (el.target.className === 'jw-modal-background') {
-                this.close();
-            }
-        });
+        // this.element.addEventListener('click', (el: any) => {
+        //     if (el.target.className === 'jw-modal-background') {
+        //         this.close();
+        //     }
+        // });
 
         // add self (this modal instance) to the modal service so it's accessible from controllers
         this.modalService.add(this);
@@ -55,6 +55,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     // close modal
     close(): void {
         this.element.style.display = 'none';
+
         document.body.classList.remove('jw-modal-open');
     }
 }

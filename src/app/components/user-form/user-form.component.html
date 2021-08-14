@@ -1,18 +1,16 @@
 <div class="card card-dark">
-  <div class="title">{{ title }}</div>
+  <div class="title text-primary">{{ title }}</div>
   <form [formGroup]="form">
     <div class="form-group">
-      <label>Name</label>
-      <input formControlName="name" placeholder="Name" class="form-control" />
+      <label class="text-primary">Name</label>
+      <input formControlName="name" class="form-control" />
     </div>
     <div class="form-group">
-      <label>BOID Number</label>
-      <input
-        placeholder="Boid Number"
-        formControlName="boid"
-        type="number"
-        class="form-control"
-      />
+      <label class="text-primary">BOID Number</label>
+      <input formControlName="boid" type="number" class="form-control" />
+      <small class="text-danger" *ngIf="boidError"
+        >BOID Number should be of 16 digits.</small
+      >
     </div>
     <div class="button-group" [ngClass]="user?.name ? 'three-items' : ''">
       <button type="cancel" class="cancel" (click)="close()">Cancel</button>

@@ -34,8 +34,6 @@ export class ResultComponent implements OnInit {
       },
       (err: any) => {
         this.error = true;
-
-        console.log("err" + err);
       }
     )
   }

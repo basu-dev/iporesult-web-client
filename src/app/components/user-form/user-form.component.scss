@@ -3,14 +3,17 @@
 $borderRadius: 3px;
 
 .card-dark {
-  background: $backgroundColor1;
+  background: white;
 }
 .form-group {
   margin-bottom: 1rem;
+  label {
+    font-size: 0.9rem;
+  }
 }
 input {
   display: block;
-  width: calc(400px - 2rem);
+  width: calc(500px - 2rem);
   padding: 0.7rem 1rem;
   border: 1px solid #cccccc;
   border-radius: $borderRadius;
@@ -27,6 +30,7 @@ input {
 
 .button-group button {
   border-radius: $borderRadius;
+  font-size: 1rem;
   border: none;
   padding: 0.7rem 1rem;
   cursor: pointer;
@@ -52,6 +56,10 @@ button.delete {
   }
   button {
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+
+  input {
+    width: calc(100vw - 4rem);
   }
 }

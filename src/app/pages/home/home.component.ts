@@ -27,9 +27,6 @@ export class HomeComponent implements OnInit {
             }
         )
     }
-    clicked(id: number) {
-
-    }
     openModal(id: string): void {
         this.modalService.open(id);
     }

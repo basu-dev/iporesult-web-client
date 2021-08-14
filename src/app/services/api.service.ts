@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject, throwError } from 'rxjs';
 import { map, tap } from "rxjs/operators"
 
 @Injectable({
@@ -40,13 +40,13 @@ export class ApiService {
 
   ping() {
     this.http.get(this.url).subscribe(
-      _ => console.log("Server Ready"),
+      _ => { },
       (err) => console.error(err)
     )
   }
 
   getResult(companyShareId: number): Observable<IpoResult[]> {
-    console.log(this.users)
+    if (this.users.length == 0) return throwError({ message: "No users added yet." })
     return this.http.post<IpoResult[]>(this.resultUrl, {
       companyShareId,
       users: this.users
@@ -65,7 +65,6 @@ export class ApiService {
 
   updateUser(user: User, id: string) {
     let index = this.users.findIndex(user => user.id == id);
-    console.log(index);
     if (index != -1) {
       this.users[index].name = user.name;
       this.users[index].boid = user.boid;
