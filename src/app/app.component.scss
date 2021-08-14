@@ -1,7 +1,8 @@
 @import "./themes/variables.scss";
 main {
   padding: 0.5rem;
-  padding-top: 2.5rem;
+
+  padding-top: calc(var(--nav-height) + 0.5rem);
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   max-height: 100vh;
@@ -9,7 +10,6 @@ main {
 }
 @media only screen and (max-width: 768px) {
   main {
-    padding-top: calc(var(--nav-height) + 0.5rem);
     display: block;
   }
 }
