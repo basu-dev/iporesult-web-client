@@ -1,19 +1,20 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {HomeComponent} from './pages/home/home.component';
-import {ResultComponent} from './pages/result/result.component';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {ModalComponent} from './components/Modal/Modal.component';
-import {UserFormComponent} from './components/user-form/user-form.component'
-import {ReactiveFormsModule} from '@angular/forms';
-import {NavbarComponent} from './components/navbar/navbar.component';
-import {UsersComponent} from './pages/users/users.component';
-import {ToastrModule} from 'ngx-toastr';
-import {NetworkInterceptor} from './services/network.interceptor';
-import {ServiceWorkerModule} from '@angular/service-worker';
-import {environment} from '../environments/environment';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ResultComponent } from './pages/result/result.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ModalComponent } from './components/Modal/Modal.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UsersComponent } from './pages/users/users.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NetworkInterceptor } from './services/network.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -42,6 +43,8 @@ import {environment} from '../environments/environment';
 
     ],
     providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+
         {
             provide: HTTP_INTERCEPTORS,
             useClass: NetworkInterceptor,
@@ -50,4 +53,4 @@ import {environment} from '../environments/environment';
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
