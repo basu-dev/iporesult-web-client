@@ -3,9 +3,9 @@
 It is an web application that you can install on your mobile by adding it to home screen. You can view Iporesults of several family members with one click.
 
 <p float="left" align="middle">
- <img width="210" src="./src/assets/images/home.jpg" > 
- <img width="210" src="./src/assets/images/adduser.jpg" > 
- <img width="210" src="./src/assets/images/result.jpg" > 
+ <img width="230" src="./src/assets/images/home.jpg" > 
+ <img width="230" src="./src/assets/images/adduser.jpg" > 
+ <img width="230" src="./src/assets/images/result.jpg" > 
  </p>
 
 ## Installation And Usage
