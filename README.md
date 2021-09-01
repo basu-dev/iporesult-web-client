@@ -2,11 +2,11 @@
 
 It is an web application that you can install on your mobile by adding it to home screen. You can view Iporesults of several family members with one click.
 
-<div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem">
-<img src="./src/assets/images/home.jpg" >
-<img src="./src/assets/images/adduser.jpg" >
-<img src="./src/assets/images/result.jpg" >
-</div>
+<p float="left" align="middle">
+ <img width="210" src="./src/assets/images/home.jpg" > 
+ <img width="210" src="./src/assets/images/adduser.jpg" > 
+ <img width="210" src="./src/assets/images/result.jpg" > 
+ </p>
 
 ## Installation And Usage
 
