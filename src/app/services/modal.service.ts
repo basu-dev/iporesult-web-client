@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
-import {User} from './api.service';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { User } from './api.service';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ModalService {
     private modals: any[] = [];
 
@@ -17,6 +17,7 @@ export class ModalService {
     remove(id: string) {
         // remove modal from array of active modals
         this.modals = this.modals.filter(x => x.id !== id);
+
     }
 
     open(id: string, data?: User) {
@@ -31,6 +32,7 @@ export class ModalService {
     close(id: string) {
         // close modal specified by id
         const modal = this.modals.find(x => x.id === id);
+
         modal.close();
     }
     closeAll() {

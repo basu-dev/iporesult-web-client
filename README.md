@@ -1,27 +1,35 @@
 # Iporesult
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+It is an web application that you can install on your mobile by adding it to home screen. You can view Iporesults of several family members with one click.
 
-## Development server
+<div style="display:grid;grid-template-columns:repeat(3,1fr);grid-gap:1rem">
+<img src="./src/assets/images/home.jpg" >
+<img src="./src/assets/images/adduser.jpg" >
+<img src="./src/assets/images/result.jpg" >
+</div>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation And Usage
 
-## Code scaffolding
+You need not to install it to home screen to use it, but adding it to home screen (installing it ) will be convineint.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installation
 
-## Build
+> 1. Visit <a class="display:inline" href="https://iporesults.netlify.app">IpoResults</a>.
+> 2. It shows <strong>Do you want to add to home screen?</strong> . You need to add it to home screen, if you want to use it like an app.
+> 3. If it doesn't you can go to chrome menus and select options Add to Home Screen or Install App whichever appears there.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Usage
 
-## Running unit tests
+> 1.  You need to add user with any name you ant and his/her boid as by clicking <strong>+</strong> button below.
+> 2.  You can and edit details of all added users in Users tab.
+> 3.  Now you can click on the IpoList on the home page to see results of all users at a click.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Warning
 
-## Running end-to-end tests
+<div style="background:orangered;padding:.5rem">
+You need to set all the BOID correct or you will not get result for any of the users.
+</div>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
+## Further
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Use this app for your personal purpose only. Do not try to use it for any commercial purpose.

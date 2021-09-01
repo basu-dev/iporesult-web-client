@@ -24,7 +24,7 @@ export class UserFormComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
       boid: ['', [Validators.required, Validators.min(1000000000000000), Validators.max(9999999999999999)]]
-    })
+    });
     this.modalService.modelDataSub.subscribe(
       data => {
         this.title = "Update User";
@@ -32,21 +32,21 @@ export class UserFormComponent implements OnInit {
         this.user = data;
         this.form.patchValue(data);
       }
-    )
+    );
   }
 
   get name() {
-    return this.form.get('name')
+    return this.form.get('name');
   }
   get boid() {
-    return this.form.get('boid')
+    return this.form.get('boid');
   }
   submit() {
     if (this.user?.name) {
       this.apiService.updateUser(this.form.value, this.user.id);
       // this.toastr.success("IPO", "User Updated Successfully");
       this.close();
-      return
+      return;
     }
     this.apiService.saveUser(this.form.value);
     // this.toastr.success("IPO", "User Added Successfully");
@@ -65,7 +65,6 @@ export class UserFormComponent implements OnInit {
 
 
   get boidError() {
-    const field = this.form.get('boid');
-    return field?.touched || field?.dirty && (field?.errors?.min || field?.errors?.max);
+    return this.form.get('boid');
   }
 }
