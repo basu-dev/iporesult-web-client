@@ -26,8 +26,8 @@ You need not to install it to home screen to use it, but adding it to home scree
 
 ## Warning
 
-<div style="background:orangered;padding:.5rem">
-You need to set all the BOID correct or you will not get result for any of the users.
+** You need to set all the BOID correct or you will not get result for any of the users. **
+
 </div>
 
 ## Further

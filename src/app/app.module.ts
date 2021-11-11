@@ -10,7 +10,6 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UsersComponent } from './pages/users/users.component';
-import { ToastrModule } from 'ngx-toastr';
 import { NetworkInterceptor } from './services/network.interceptor';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -32,7 +31,6 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
         HttpClientModule,
         AppRoutingModule,
         HttpClientModule,
-        ToastrModule.forRoot(),
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: environment.production,
             // Register the ServiceWorker as soon as the app is stable

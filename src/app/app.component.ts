@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {ApiService} from './services/api.service';
-import {ModalService} from "./services/modal.service"
+import { Component } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { ApiService } from './services/api.service';
+import { ModalService } from "./services/modal.service";
 
 @Component({
   selector: 'app-root',

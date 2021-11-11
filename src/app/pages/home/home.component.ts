@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit {
         this.apiService.getIpos().subscribe(
             (data: any) => {
                 this.error = false;
-                this.ipos = data
+                this.ipos = data;
             },
             (err: any) => {
                 this.error = true;
             }
-        )
+        );
     }
     openModal(id: string): void {
         this.modalService.open(id);

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject, throwError } from 'rxjs';
-import { map, tap } from "rxjs/operators"
+import { map, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,9 @@ import { map, tap } from "rxjs/operators"
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  url = "https://ipo-result.herokuapp.com"
-  resultUrl = `${this.url}/result`
-  iposUrl = "https://iporesult.cdsc.com.np/result/companyShares/fileUploaded"
+  url = "https://ipo-result.herokuapp.com";
+  resultUrl = `${this.url}/result`;
+  iposUrl = "https://iporesult.cdsc.com.np/result/companyShares/fileUploaded";
 
   private ipos: Ipo[] = [];
 
@@ -20,10 +20,10 @@ export class ApiService {
     if (this.ipos.length != 0) return of(this.ipos);
 
     return this.http.get<Ipo>(this.iposUrl).pipe(
-      tap((data: any) => this.ipos = data.body),
+      tap((data: any) => this.ipos = data.body.reverse()),
       map(
         (data: any) => data.body
-      ))
+      ));
   }
 
   public loadingSub = new BehaviorSubject<boolean>(false);
@@ -42,15 +42,15 @@ export class ApiService {
     this.http.get(this.url).subscribe(
       _ => { },
       (err) => console.error(err)
-    )
+    );
   }
 
   getResult(companyShareId: number): Observable<IpoResult[]> {
-    if (this.users.length == 0) return throwError({ message: "No users added yet." })
+    if (this.users.length == 0) return throwError({ type: 'no-user', message: "No users added yet." });
     return this.http.post<IpoResult[]>(this.resultUrl, {
       companyShareId,
       users: this.users
-    })
+    });
   }
 
   getUserById(id: string): User {
@@ -82,11 +82,11 @@ export class ApiService {
   }
 
   saveToLocalStorage() {
-    localStorage.setItem('ipoUsers', JSON.stringify(this.users))
+    localStorage.setItem('ipoUsers', JSON.stringify(this.users));
   }
 
   retrieveUsers() {
-    this.users = JSON.parse(localStorage.getItem('ipoUsers') as string) ?? this.users
+    this.users = JSON.parse(localStorage.getItem('ipoUsers') as string) ?? this.users;
     return this.users;
   };
 }
@@ -101,16 +101,16 @@ export interface Ipo {
 
 export interface IpoResult {
   user: User,
-  result: Result
+  result: Result;
 }
 
 export interface User {
   id: string,
   name: string,
-  boid: number
+  boid: number;
 }
 
 export interface Result {
   success: boolean,
-  message: string
+  message: string;
 }

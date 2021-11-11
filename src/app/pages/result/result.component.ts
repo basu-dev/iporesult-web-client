@@ -14,12 +14,12 @@ export class ResultComponent implements OnInit {
   ) {
     this.route.params.subscribe(
       data => this.id = data['id'] as number
-    )
+    );
   }
 
   id!: number;
   ipoResults!: IpoResult[];
-  error = false;
+  errorType: 'no-user' | 'user-offline' | 'server-error' | null = null;
   ipoName = "";
 
   ngOnInit(): void {
@@ -29,13 +29,21 @@ export class ResultComponent implements OnInit {
   loadResult() {
     this.apiService.getResult(this.id).subscribe(
       data => {
-        this.error = false;
+        this.errorType = null;
         this.ipoResults = data;
       },
       (err: any) => {
-        this.error = true;
+        console.log(err);
+        if (err.type && err.type == 'no-user') {
+          this.errorType = 'no-user';
+        }
+        else if (err.status == 0) {
+          this.errorType = 'user-offline';
+        } else {
+          this.errorType = 'server-error';
+        }
       }
-    )
+    );
   }
 
 }
